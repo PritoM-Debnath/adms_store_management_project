@@ -1,0 +1,419 @@
+##Table:
+
+CREATE sequence seq_user_id increment by 1 start with 1 nocache nocycle;
+
+CREATE TABLE user_data (
+  Id number(10) PRIMARY KEY NOT NULL,
+  Name varchar2(100) NOT NULL,
+  Email varchar2(100) UNIQUE NOT NULL,
+  Username varchar2(100) NOT NULL,
+  Password varchar2(100) NOT NULL,
+  Gender varchar2(100) NOT NULL,
+  Dob date NOT NULL,
+  Phone varchar2(100) NOT NULL,
+  Preadd varchar2(100) NOT NULL,
+  Religion varchar2(100) NOT NULL
+) ;
+
+INSERT INTO user_data(Id, Name, Email, Username, Password, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(1, 'Md Ali Ahnaf', 'aliahnaf2012@gmail.com', 'Ahnaf', '1Wertyui@', 'Male', to_date('22-2-1999','dd-mm-yyyy'), '01775752822', 'NHA-11, DOYEL TOWER, Flat C-6, LALMATIA', 'Islam');
+
+INSERT INTO user_data(Id, Name, Email, Username, Password, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_user_id.NEXTVAL, 'GEGE', 'gege@gmail.com', 'gg', '1Wertyui@_', 'Other', to_date('19-7-2001','dd-mm-yyyy'), '01775752811', 'Neptune', 'Islam'); 
+
+INSERT INTO user_data(Id, Name, Email, Username, Password, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_user_id.NEXTVAL, 'Protik Acharjay', 'protik@gmail.com', 'Protik', 'pro', 'Male', to_date('11-12-2001','dd-mm-yyyy'), '01798141488', 'Rajshahi', 'Sanatan'); 
+
+INSERT INTO user_data(Id, Name, Email, Username, Password, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_user_id.NEXTVAL, 'Kingshuk', 'king@gmail.com', 'king', '1Wertyui@_', 'Male', to_date('19-7-2001','dd-mm-yyyy'), '01775752811', 'Dhaka', 'Islam'); 
+
+INSERT INTO user_data(Id, Name, Email, Username, Password, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_user_id.NEXTVAL, 'Mishkat', 'mish@gmail.com', 'mish', '1Wertyui@_', 'Male', to_date('1-7-2001','dd-mm-yyyy'), '01879845456', 'Kuril', 'Islam'); 
+
+
+select * from user_data 
+
+/* drop table user_data */
+
+##################################################################################################################################################################################################################################################################################
+
+CREATE sequence seq_admin_id increment by 1 start with 1 nocache nocycle;
+
+CREATE TABLE user_admin_data (
+  Admin_Id number(10) PRIMARY KEY NOT NULL,
+  Name clob NOT NULL,
+  Email varchar2(100) UNIQUE NOT NULL,
+  Adminname varchar2(100) NOT NULL,
+  Adminpassword varchar2(100) NOT NULL,
+  Gender varchar2(100) NOT NULL,
+  Dob date NOT NULL,
+  Phone varchar2(100) NOT NULL,
+  Preadd varchar2(100) NOT NULL,
+  Religion varchar2(100) NOT NULL
+) ;
+
+INSERT INTO user_admin_data (Admin_Id, Name, Email, Adminname, Adminpassword, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(1, 'Md Ali Ahnaf', 'aliahnaf2012@gmail.com', 'Ahnaf', 'admin', 'Male', to_date('22-2-1999','dd-mm-yyyy'), '01775752822', 'NHA-11, DOYEL TOWER, Flat C-6, LALMATIA', 'Islam');
+
+INSERT INTO user_admin_data (Admin_Id, Name, Email, Adminname, Adminpassword, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_admin_id.NEXTVAL, 'Admin1', 'admin@gmail.com', 'admin', 'admin123', 'Other', to_date('19-7-2001','dd-mm-yyyy'), '01775752811', 'Neptune', 'Islam'); 
+
+INSERT INTO user_admin_data (Admin_Id, Name, Email, Adminname, Adminpassword, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_admin_id.NEXTVAL, 'Protik Acharjay', 'protikadmin@gmail.com', 'Protikad', 'pro', 'Male', to_date('11-12-2001','dd-mm-yyyy'), '01798141488', 'Rajshahi', 'Sanatan'); 
+
+INSERT INTO user_admin_data (Admin_Id, Name, Email, Adminname, Adminpassword, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_admin_id.NEXTVAL, 'Kingshukad', 'kingad@gmail.com', 'kingad', '1Wertyui@_', 'Male', to_date('19-7-2001','dd-mm-yyyy'), '01775752811', 'Dhaka', 'Islam'); 
+
+INSERT INTO user_admin_data (Admin_Id, Name, Email, Adminname, Adminpassword, Gender, Dob, Phone, Preadd, Religion)
+ VALUES(seq_admin_id.NEXTVAL, 'Mishkatad', 'mishad@gmail.com', 'mishad', '1Wertyui@_', 'Male', to_date('1-7-2001','dd-mm-yyyy'), '01879845456', 'Kuril', 'Islam'); 
+
+
+select * from user_admin_data 
+
+/* drop table user_data */
+
+######################################################################################################################################
+
+CREATE sequence seq_order_id increment by 1 start with 1 nocache nocycle;
+CREATE TABLE user_orders (
+  Order_Id number PRIMARY KEY NOT NULL,
+  Id number NOT NULL,
+  Item_Name varchar2(100) NOT NULL,
+  Price number(10) NOT NULL,
+  Quantity number(10) NOT NULL,
+  Pay_method varchar2(100) NOT NULL,
+  Product_total number(10) NOT NULL
+);
+INSERT INTO user_orders (Order_Id, Id, Item_Name, Price, Quantity, Pay_method, Product_total)
+VALUES (seq_order_id.NEXTVAL, 2, 'Product e', 5, 4, 'Cash on Delivery', 20);
+
+INSERT INTO user_orders (Order_Id, Id, Item_Name, Price, Quantity, Pay_method, Product_total)
+VALUES (seq_order_id.NEXTVAL, 2, 'Product e', 6, 3, 'COD', 18);
+
+
+
+select * from user_orders 
+
+###########################################################################################################################
+
+CREATE TABLE comments_section (
+  Idc NUMBER(10) NOT NULL,
+  Namec VARCHAR2(100) NOT NULL,
+  Emailc VARCHAR2(100) NOT NULL,
+  Commentz VARCHAR2(255) NOT NULL
+);
+select * from comments_section 
+
+INSERT INTO comments_section (Idc, Namec, Emailc, Commentz) 
+VALUES (1, 'Life is a MEME', 'memeislife@outlook.com', 'Meme is everything. I am pretty good at razer products meme. Send me free products :'' cause I am ');
+
+
+INSERT INTO comments_section (Idc, Namec, Emailc, Commentz) VALUES
+(2, 'Unknown Warrior', 'lifeisunknown@outlook.com', 'I am from the Unknown by the Unknown :3 Your products are authentic and pretty fast delivery I got.');
+
+INSERT INTO comments_section (Idc, Namec, Emailc, Commentz) VALUES
+(3, 'Sad Warrior', 'lifeissad@outlook.com', 'I am sad and known by all :3 Your products are authentic btw I am a bit sad cause I didn''t get any discounts :/');
+
+INSERT INTO comments_section (Idc, Namec, Emailc, Commentz) VALUES
+(4, 'Tech Geek', 'geektech@outlook.com', 'I am a tech seeker, When I opened the product At Glance I knew they were authentic.');
+
+INSERT INTO comments_section (Idc, Namec, Emailc, Commentz) VALUES
+(5, 'Sad Geek', 'sadgeek@outlook.com', 'I am a tech seeker, when I opened the product at Glance I knew they were authentic.');
+
+#################################################################################################################
+
+CREATE sequence seq_staff_id increment by 1 start with 1 nocache nocycle;
+CREATE TABLE Staff (
+  staff_id NUMBER(10) PRIMARY KEY NOT NULL,
+  admin_id NUMBER(10) NOT NULL,
+  name VARCHAR2(100) NOT NULL,
+  email VARCHAR2(100) UNIQUE NOT NULL,
+  password VARCHAR2(100) NOT NULL
+);
+INSERT INTO Staff (staff_id, admin_id, name, email, password)
+VALUES (seq_staff_id.NEXTVAL, 1, 'John', 'john@gmail.com', 'mypassword123');
+
+INSERT INTO Staff (staff_id, admin_id, name, email, password)
+VALUES (seq_staff_id.NEXTVAL, 2, 'Smith', 'smith@gmail.com', 'mysecretpass');
+
+INSERT INTO Staff (staff_id, admin_id, name, email, password)
+VALUES (seq_staff_id.NEXTVAL, 1, 'Johnson', 'jonson@gmail.com', 'password123');
+
+INSERT INTO Staff (staff_id, admin_id, name, email, password)
+VALUES (seq_staff_id.NEXTVAL, 3, 'Mary', 'mary@gmail.com', 'mysecurepassword');
+
+INSERT INTO Staff (staff_id, admin_id, name, email, password)
+VALUES (seq_staff_id.NEXTVAL, 2, 'Tom', 'tom@gmail.com', 'password456');
+select * from Staff 
+
+################################################################################################################
+
+CREATE TABLE Warehouse (
+  item_id NUMBER(10) PRIMARY KEY NOT NULL,
+  item_name VARCHAR2(100) NOT NULL,
+  price NUMBER(10,2) NOT NULL,
+  quantity NUMBER(10) NOT NULL,
+  staff_id NUMBER(10) NOT NULL
+);
+
+INSERT INTO Warehouse (item_id, item_name, price, quantity, staff_id)
+VALUES (1, 'Razer Keyboard', 99.99, 10, 1);
+
+INSERT INTO Warehouse (item_id, item_name, price, quantity, staff_id)
+VALUES (2, 'Razer Mouse', 49.99, 20, 2);
+
+INSERT INTO Warehouse (item_id, item_name, price, quantity, staff_id)
+VALUES (3, 'Razer Headset', 149.99, 5, 3);
+
+INSERT INTO Warehouse (item_id, item_name, price, quantity, staff_id)
+VALUES (4, 'Razer Gaming Chair', 199.99, 3, 4);
+
+INSERT INTO Warehouse (item_id, item_name, price, quantity, staff_id)
+VALUES (5, 'Razer Mousepad', 29.99, 30, 1);
+
+SELECT * FROM Warehouse
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##Function:
+
+valid admin:
+
+CREATE FUNCTION valid_admin
+(a_id in user_admin_data .ADMIN_ID%type)
+RETURN  boolean
+is
+cnt_a number;
+BEGIN 
+  select count(*)  into cnt_a from user_admin_data where ADMIN_ID = a_id;
+if cnt_a >0 then
+return true;
+else
+return false;
+end if;
+END valid_admin;
+
+
+valid user:
+
+CREATE FUNCTION valid_user
+(u_id in user_data .ID%type)
+RETURN  boolean
+is
+cnt_u number;
+BEGIN 
+  select count(*)  into cnt_u from user_data where ID = u_id;
+if cnt_u >0 then
+return true;
+else
+return false;
+end if;
+END valid_user;
+
+
+valid stuff: 
+
+CREATE FUNCTION valid_staff
+(s_id in Staff.STAFF_ID%type)
+RETURN  boolean
+is
+cnt_s number;
+BEGIN 
+  select count(*)  into cnt_s from Staff where STAFF_ID = s_id;
+if cnt_s >0 then
+return true;
+else
+return false;
+end if;
+END valid_staff;
+
+
+##Procedure:
+
+1. add_order:
+
+CREATE OR REPLACE PROCEDURE add_order
+(u_id user_data.ID%type, price user_orders.PRICE%type, qty user_orders.QUANTITY%type, name user_orders.ITEM_NAME%type) 
+AS
+inval_user exception;
+total number;
+BEGIN 
+if u_id<1 then
+raise inval_user;
+else
+total := price * qty;
+insert into user_orders values (seq_order_id.NEXTVAL, u_id, name, price, qty, 'COD', total);
+end if;
+exception
+when inval_user then
+raise_application_error(-20227,'User Not Exist');
+END add_order; 
+
+begin
+add_order(3, 12, 3, 'Mouse');
+end;
+
+2.add_stuff
+
+CREATE OR REPLACE PROCEDURE add_stuff
+(a_id user_admin_data .ADMIN_ID%type, nme Staff.NAME%type, mail Staff.EMAIL%type, pass Staff.PASSWORD%type) 
+AS
+inval_admin exception;
+BEGIN 
+if a_id<1 then
+raise inval_admin;
+else
+insert into Staff values (seq_staff_id.NEXTVAL, a_id, nme, mail , pass);
+end if;
+exception
+when inval_admin then
+raise_application_error(-20227,'Admin Do Not Exists');
+END add_stuff; 
+
+begin
+add_stuff(3, 'ahnaf', 'ah@mail.com', '1234');
+end;
+
+3. update_mail_stuff 
+
+CREATE OR REPLACE PROCEDURE update_mail_stuff
+(s_id Staff.STAFF_ID%type, mail Staff.EMAIL%type) 
+AS
+inval_staff exception;
+BEGIN 
+if s_id<1 then
+raise inval_staff;
+else
+update Staff set EMAIL = mail  where STAFF_ID = s_id; 
+end if;
+exception
+when inval_staff then
+raise_application_error(-20237,'Staff Do Not Exists');
+END update_mail_stuff; 
+
+begin
+update_mail_stuff(1,  'afh@mail.com');
+end;
+
+4. update_pass_stuff
+
+CREATE OR REPLACE PROCEDURE update_pass_stuff
+(s_id Staff.STAFF_ID%type, pass Staff.PASSWORD%type) 
+AS
+inval_staff exception;
+BEGIN 
+if s_id<1 then
+raise inval_staff;
+else
+update Staff set PASSWORD = pass where STAFF_ID = s_id; 
+end if;
+exception
+when inval_staff then
+raise_application_error(-20237,'Staff Do Not Exists');
+END update_pass_stuff; 
+
+begin
+update_pass_stuff(1,  '1234567');
+end;
+
+5. update_mail_user
+
+CREATE OR REPLACE PROCEDURE update_mail_user
+(u_id user_data.ID%type, mail user_data.EMAIL%type) 
+AS
+inval_user exception;
+BEGIN 
+if u_id<1 then
+raise inval_user;
+else
+update user_data set EMAIL = mail  where ID = u_id; 
+end if;
+exception
+when inval_user then
+raise_application_error(-20137,'User Do Not Exists');
+END update_mail_user; 
+
+begin
+update_mail_user(1,  'ah@mail.com');
+end;
+
+6.update_pass_user
+
+CREATE OR REPLACE PROCEDURE update_pass_user
+(u_id user_data.ID%type, pass user_data.PASSWORD%type) 
+AS
+inval_user exception;
+BEGIN 
+if u_id<1 then
+raise inval_user;
+else
+update user_data set PASSWORD = pass  where ID = u_id; 
+end if;
+exception
+when inval_user then
+raise_application_error(-20137,'User Do Not Exists');
+END update_pass_user; 
+
+begin
+update_pass_user(1,  'ah@mail.com');
+end;
+
+##Views
+
+1. create or replace view COD_payment as select u.ID, u.NAME, u.PHONE, o.ORDER_ID, o.ITEM_NAME, o.PRICE, o.QUANTITY from user_data u, user_orders o where u.ID = o.ID and o.PAY_METHOD='COD'
+
+select * from COD_payment 
+
+2. create or replace view order_by_user as select u.ID, u.NAME, u.PHONE, o.ORDER_ID, o.ITEM_NAME, o.PRICE, o.QUANTITY from user_data u, user_orders o where u.ID = o.ID and u.ID =2 
+
+3. create or replace view order_monitor as select u.ID, u.NAME, u.PHONE, o.ORDER_ID, o.ITEM_NAME, o.PRICE, o.QUANTITY from user_data u, user_orders o where u.ID = o.ID and o.ITEM_NAME = 'Monitor'
+
+
+##Trigger:
+
+1. 
+create or replace trigger order_security before insert or update or delete on user_orders 
+begin
+if to_char(sysdate,'HH24') not between '8' and '22' or to_char(sysdate,'DY') in ('FRI','SAT') then
+raise_application_error(-20200,'Operation Failed');
+end if;
+end;
+
+2. 
+create sequence seq_admin_dml increment by 1 start with 1 nocycle nocache;
+
+create table admin_dml_log(adml_id number(10) primary key,user_name varchar2(20), opt_name 
+varchar2(10), opt_date date);
+
+create or replace trigger admin_log after insert or delete or update on user_admin_data 
+declare
+opt varchar2(10);
+begin
+if inserting then
+opt:='insert operation';
+elsif updating then
+opt:='update operation';
+else
+opt:='delete operation';
+end if;
+insert into admin_dml_log values(seq_admin_dml.NEXTVAL, user, opt,sysdate);
+end;
+
+3. 
+create table price_uplog(item_id number not null, old_price number(10), 
+new_price number(10), opt_date date);
+create or replace trigger price_uplog after update of PRICE on Warehouse
+for each row
+begin
+insert into price_uplog values(:old.item_id,:old.PRICE, :new.price, sysdate);
+end;
+
+4.
+create or replace trigger pass_trigger before insert or update of phone on user_data 
+for each row
+begin
+if length(:new.PHONE) <11  then
+raise_application_error(-20500,'Invalid Phone Number');
+end if;
+end;
